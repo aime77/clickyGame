@@ -25,18 +25,14 @@ class App extends React.Component {
   onImageSelect = image => {
     this.setState({ selectedImage: image });
 
-    console.log("from app", image);
-    
     this.state.images.sort(() => Math.random() - 0.5);
-    console.log(image.id);
+  
     if (this.state.selectedImageArray.length < 1) {
       this.setState({ counter: this.state.counter + 1 });
       this.setState({ feedbackText: "One point up, awesome job!" });
     } else {
       this.state.selectedImageArray.forEach(img => {
-        console.log(image.id, img);
         if (image.id !== img) {
-          console.log(image.id, img.id);
           this.setState({ feedbackText: "One point up, awesome job!" });
           this.setState({ counter: this.state.counter + 1 });
           this.winGame();
@@ -51,12 +47,17 @@ class App extends React.Component {
 
   winGame = () => {
     if (this.state.counter >= this.state.highestCount) {
-      console.log(this.state.counter, this.state.highestCount);
       this.setState({ feedbackText: "You won! Congratulations!" });
       this.setState({ selectedImageArray: [] });
+      this.setState({counter: 0})
       return true;
     }
   };
+
+  resetGame=()=>{
+
+
+  }
 
   render() {
     return (
