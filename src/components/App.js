@@ -2,17 +2,16 @@ import React from "react";
 import unsplash from "../apis/unsplash";
 import SearchBar from "./SearchBar";
 import ImageList from "./ImageList";
-import Feedback from "./Feedback";
 import Header from "./Header";
 
-//e5d71c70ddc4f01872fae30c59223265277eb8f827a18396885a90b593db519d
 class App extends React.Component {
   state = {
     images: [],
     selectedImage: null,
     counter: 0,
     highestCount: 5,
-    feedbackText: ""
+    feedbackText: "",
+    selectedImageArray: []
   };
 
   onSearchSubmit = async term => {
@@ -25,30 +24,36 @@ class App extends React.Component {
 
   onImageSelect = image => {
     this.setState({ selectedImage: image });
+
     console.log("from app", image);
-    this.winGame();
-    this.setState({ counter: this.state.counter + 1 }); 
     
     this.state.images.sort(() => Math.random() - 0.5);
-   
-  };
-
-  // checkCardDuplicateClick=(image)=>{
-  //   const imgArray=this.state.images;
-
-  //   imgArray.forEach((img)=>{
-  //   if(image.id!==img){
-
-  //   })
-    
-
-  //   }
-  // }
+    console.log(image.id);
+    if (this.state.selectedImageArray.length < 1) {
+      this.setState({ counter: this.state.counter + 1 });
+      this.setState({ feedbackText: "One point up, awesome job!" });
+    } else {
+      this.state.selectedImageArray.forEach(img => {
+        console.log(image.id, img);
+        if (image.id !== img) {
+          console.log(image.id, img.id);
+          this.setState({ feedbackText: "One point up, awesome job!" });
+          this.setState({ counter: this.state.counter + 1 });
+          this.winGame();
+        } else if (image.id === img){
+          this.setState({ feedbackText: "Close, try again!" });
+        }
+        });
+      };
+      this.setState({ selectedImageArray: [image.id] });
+    }
+  
 
   winGame = () => {
-    if (this.state.counter > this.state.highestCount) {
-      console.log(this.state.counter , this.state.highestCount)
+    if (this.state.counter >= this.state.highestCount) {
+      console.log(this.state.counter, this.state.highestCount);
       this.setState({ feedbackText: "You won! Congratulations!" });
+      this.setState({ selectedImageArray: [] });
       return true;
     }
   };
@@ -62,7 +67,6 @@ class App extends React.Component {
           higuestCount={this.state.highestCount}
           feedbackText={this.state.feedbackText}
         />
-        {/* <Feedback image={this.state.selectedImage} counter={this.state.counter} /> */}
         <SearchBar onSubmit={this.onSearchSubmit} />
         <ImageList
           onImageSelect={this.onImageSelect}
