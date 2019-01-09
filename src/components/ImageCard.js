@@ -7,9 +7,7 @@ class ImageCard extends React.Component {
     this.imageRef = React.createRef();
     this.state={}
     this.imgSelect=()=>{
-    
       onImageSelect(image, count=0);
-
     }
   }
 
