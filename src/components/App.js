@@ -10,17 +10,19 @@ class App extends React.Component {
     selectedImage: null,
     counter: 0,
     highestCount: 0,
-    feedbackText: "",
+    feedbackText: "Search for an image theme to begin",
     selectedImageArray: []
   };
 
   onSearchSubmit = async term => {
     console.log(term);
     const response = await unsplash.get("search/photos", {
-      params: { query: term }
+      params: { query: term },
+      maxContentLength:10
     });
     this.setState({ images: response.data.results });
     this.resetGame();
+    this.setState({ feedbackText: "Now CLICK on an image to begin exercising your memory. Good luck!" });
   };
 
   onImageSelect = image => {
@@ -50,8 +52,10 @@ class App extends React.Component {
 
   winGame = () => {
     if (this.state.counter === this.state.images.length) {
-      this.setState({ feedbackText: "Congratulations! You won! Try with a different image." });
-      this.setState({highestCount:0});
+      this.setState({
+        feedbackText: "Congratulations! You won! Challenge yourslef by trying a different image theme."
+      });
+      this.setState({ highestCount: 0 });
       this.resetGame();
       return true;
     }
