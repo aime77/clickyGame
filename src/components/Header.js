@@ -1,6 +1,5 @@
 import React from "react";
 import "./ImageList.css";
-import { Transition } from "react-spring";
 
 const Header = ({ counter, higuestCount, feedbackText }) => {
   return (

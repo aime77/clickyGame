@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://aime77.github.io/clickyGame/",
   "dependencies": {
+    "animejs": "^3.0.0",
     "gh-pages": "^2.0.1",
     "react": "^16.7.0",
     "react-animated-css": "^1.0.4",

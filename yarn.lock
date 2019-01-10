@@ -1158,6 +1158,11 @@ alphanum-sort@^1.0.0:
   resolved "https://registry.yarnpkg.com/alphanum-sort/-/alphanum-sort-1.0.2.tgz#97a1119649b211ad33691d9f9f486a8ec9fbe0a3"
   integrity sha1-l6ERlkmyEa0zaR2fn0hqjsn74KM=
 
+animejs@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/animejs/-/animejs-3.0.0.tgz#6b0fb87fbd0b13128b35fe8e790b1671ae7b825d"
+  integrity sha512-YL2+GpjoDYM7hqKpJoh+vhXYNiE0klkgUlDl3m+wCuXh9QJF++/KIT2SQYkBkVhxk/GLlFsqI5I/ogWN4pBQSA==
+
 ansi-colors@^3.0.0:
   version "3.2.3"
   resolved "https://registry.yarnpkg.com/ansi-colors/-/ansi-colors-3.2.3.tgz#57d35b8686e851e2cc04c403f1c00203976a1813"
