@@ -10,7 +10,7 @@ class App extends React.Component {
     selectedImage: null,
     counter: 0,
     highestCount: 0,
-    feedbackText: "Search for an image theme to begin",
+    feedbackText: `Search for an image theme to begin`,
     selectedImageArray: []
   };
 
@@ -74,13 +74,14 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="ui container" style={{ marginTop: "10px" }}>
+      <div className="ui container" style={{ marginTop: "10px"}}>
+       
         <Header
           counter={this.state.counter}
-          image={this.state.selectedImage}
           higuestCount={this.state.highestCount}
-          feedbackText={this.state.feedbackText}
+        feedbackText={this.state.feedbackText}
         />
+        
         <SearchBar onSubmit={this.onSearchSubmit} />
         <ImageList
           onImageSelect={this.onImageSelect}

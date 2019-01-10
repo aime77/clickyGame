@@ -1,10 +1,8 @@
 import React from "react";
 import "./ImageList.css";
+import { Transition } from "react-spring";
 
-const Header = ({ counter, image, higuestCount, feedbackText }) => {
-  // if (!image) {
-  //   return <div>Search for a topic of interest to begin!</div>;
-  // }
+const Header = ({ counter, higuestCount, feedbackText }) => {
   return (
     <div className="ui segment">
       <h3 className="ui right aligned header">
