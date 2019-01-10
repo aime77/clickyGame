@@ -8,12 +8,18 @@ class SearchBar extends React.Component {
     console.log(this.state.term);
   }
 
+  
+
   render() {
+    const style2={
+    fontFamily:"Georgia", 
+    fontSize: "15px"
+  }
     return (
       <div className="ui segment" >
         <form onSubmit={this.onFormSubmit} className="ui form" >
           <div className="field">
-            <label>Image Search</label>
+            <label style={style2}>Image Search</label>
             <input
               type="text"
               value={this.state.term}
