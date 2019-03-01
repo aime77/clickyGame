@@ -17,14 +17,9 @@ html {
   background-size: cover;
   background-position: center;
 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-
   color: black;
   min-height: 100%;
   color: black;
-
   height: auto;
 }
 
